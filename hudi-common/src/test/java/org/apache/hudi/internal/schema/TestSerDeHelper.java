@@ -74,7 +74,8 @@ public class TestSerDeHelper {
         Types.Field.get(9, "uuid", Types.UUIDType.get()),
         Types.Field.get(10, "fixed", Types.FixedType.getFixed(10)),
         Types.Field.get(11, "binary", Types.BinaryType.get()),
-        Types.Field.get(12, "decimal", Types.DecimalType.get(10, 2))
+        Types.Field.get(12, "decimal", Types.DecimalType.get(10, 2)),
+        Types.Field.get(13, "geometry", Types.GeometryType.get())
     }));
     InternalSchema internalSchema = new InternalSchema(record);
     String result = SerDeHelper.toJson(internalSchema);

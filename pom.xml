@@ -120,7 +120,7 @@
     <joda.version>2.9.9</joda.version>
     <hadoop.version>2.10.2</hadoop.version>
     <hive.groupid>org.apache.hive</hive.groupid>
-    <hive.version>2.3.4</hive.version>
+    <hive.version>2.3.9</hive.version>
     <hive.parquet.version>1.10.1</hive.parquet.version>
     <hive.avro.version>1.8.2</hive.avro.version>
     <presto.version>0.273</presto.version>
@@ -166,7 +166,7 @@
     <spark30.version>3.0.2</spark30.version>
     <spark31.version>3.1.3</spark31.version>
     <spark32.version>3.2.3</spark32.version>
-    <spark33.version>3.3.4</spark33.version>
+    <spark33.version>3.3.5-SNAPSHOT</spark33.version>
     <spark34.version>3.4.3</spark34.version>
     <spark35.version>3.5.1</spark35.version>
     <hudi.spark.module>hudi-spark3.2.x</hudi.spark.module>
@@ -237,6 +237,8 @@
     <springboot.version>2.7.3</springboot.version>
     <spring.shell.version>2.1.1</spring.shell.version>
     <snappy.version>1.1.8.3</snappy.version>
+    <sedona.version>1.6.0</sedona.version>
+    <sedona.spark.version>3.0</sedona.spark.version>
   </properties>
 
   <scm>
@@ -2415,6 +2417,7 @@
         <pulsar.spark.version>${pulsar.spark.scala12.version}</pulsar.spark.version>
         <log4j2.version>2.20.0</log4j2.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <sedona.spark.verion>3.5</sedona.spark.verion>
         <skip.hudi-spark2.unit.tests>true</skip.hudi-spark2.unit.tests>
         <skipITs>true</skipITs>
       </properties>
@@ -2587,7 +2590,7 @@
                    bringing these file-formats as dependencies as well, we need to make sure that versions are
                    synchronized to avoid classpath ambiguity -->
         <parquet.version>1.12.2</parquet.version>
-        <orc.spark.version>1.7.8</orc.spark.version>
+        <orc.spark.version>1.7.10</orc.spark.version>
         <avro.version>1.11.1</avro.version>
         <antlr.version>4.8</antlr.version>
         <fasterxml.spark3.version>2.13.3</fasterxml.spark3.version>
@@ -2695,6 +2698,7 @@
         <fasterxml.jackson.dataformat.yaml.version>${fasterxml.spark3.version}</fasterxml.jackson.dataformat.yaml.version>
         <log4j2.version>2.20.0</log4j2.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <sedona.spark.verion>3.5</sedona.spark.verion>
         <skip.hudi-spark2.unit.tests>true</skip.hudi-spark2.unit.tests>
         <skipITs>true</skipITs>
       </properties>
