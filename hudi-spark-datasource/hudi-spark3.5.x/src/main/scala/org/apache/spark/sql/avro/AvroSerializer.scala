@@ -32,6 +32,7 @@ import org.apache.spark.sql.catalyst.expressions.{SpecializedGetters, SpecificIn
 import org.apache.spark.sql.catalyst.util.{DateTimeUtils, RebaseDateTime}
 import org.apache.spark.sql.execution.datasources.DataSourceUtils
 import org.apache.spark.sql.internal.{LegacyBehaviorPolicy, SQLConf}
+import org.apache.spark.sql.sedona_sql.UDT.GeometryUDT
 import org.apache.spark.sql.types._
 
 import java.nio.ByteBuffer
@@ -169,7 +170,7 @@ private[sql] class AvroSerializer(rootCatalystType: DataType,
           }
           new Fixed(avroType, data)
 
-      case (BinaryType, BYTES) =>
+      case (BinaryType | GeometryUDT, BYTES) =>
         (getter, ordinal) => ByteBuffer.wrap(getter.getBinary(ordinal))
 
       case (DateType, INT) =>
