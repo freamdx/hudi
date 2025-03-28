@@ -24,7 +24,8 @@ import org.apache.parquet.hadoop.metadata.FileMetaData
 import org.apache.spark.sql.HoodieSchemaUtils
 import org.apache.spark.sql.catalyst.expressions.codegen.GenerateUnsafeProjection
 import org.apache.spark.sql.catalyst.expressions.{Attribute, Cast, UnsafeProjection}
-import org.apache.spark.sql.types.{ArrayType, DataType, MapType, StructField, StructType}
+import org.apache.spark.sql.sedona_sql.UDT.GeometryUDT
+import org.apache.spark.sql.types.{ArrayType, BinaryType, DataType, MapType, StructField, StructType}
 
 object HoodieParquetFileFormatHelper {
 
@@ -79,6 +80,8 @@ object HoodieParquetFileFormatHelper {
         case (requiredField, fileFilteredField) =>
           isDataTypeEqual(requiredField.dataType, fileFilteredField.dataType)
       }
+
+    case (GeometryUDT, BinaryType) => true
 
     case _ => false
   }

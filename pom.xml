@@ -118,7 +118,7 @@
     <joda.version>2.9.9</joda.version>
     <hadoop.version>2.10.2</hadoop.version>
     <hive.groupid>org.apache.hive</hive.groupid>
-    <hive.version>2.3.4</hive.version>
+    <hive.version>2.3.9</hive.version>
     <hive.parquet.version>1.10.1</hive.parquet.version>
     <hive.avro.version>1.8.2</hive.avro.version>
     <presto.version>0.273</presto.version>
@@ -151,7 +151,7 @@
     <flink.avro.version>1.11.3</flink.avro.version>
     <flink.format.parquet.version>1.13.1</flink.format.parquet.version>
     <!-- check kafka version -->
-    <flink.connector.kafka.version>3.2.0-1.19</flink.connector.kafka.version> 
+    <flink.connector.kafka.version>3.2.0-1.19</flink.connector.kafka.version>
     <flink.runtime.artifactId>flink-runtime</flink.runtime.artifactId>
     <flink.table.runtime.artifactId>flink-table-runtime</flink.table.runtime.artifactId>
     <flink.table.planner.artifactId>flink-table-planner_2.12</flink.table.planner.artifactId>
@@ -227,6 +227,8 @@
     <springboot.version>2.7.3</springboot.version>
     <spring.shell.version>2.1.1</spring.shell.version>
     <snappy.version>1.1.8.3</snappy.version>
+    <sedona.version>1.7.1</sedona.version>
+    <sedona.spark.version>3.3</sedona.spark.version>
   </properties>
 
   <scm>
@@ -2319,6 +2321,7 @@
         <pulsar.spark.version>${pulsar.spark.scala12.version}</pulsar.spark.version>
         <log4j2.version>2.20.0</log4j2.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <sedona.spark.version>3.5</sedona.spark.version>
         <skipITs>true</skipITs>
       </properties>
       <modules>
@@ -2364,7 +2367,7 @@
                    bringing these file-formats as dependencies as well, we need to make sure that versions are
                    synchronized to avoid classpath ambiguity -->
         <parquet.version>1.12.2</parquet.version>
-        <orc.spark.version>1.7.8</orc.spark.version>
+        <orc.spark.version>1.7.10</orc.spark.version>
         <avro.version>1.11.1</avro.version>
         <antlr.version>4.8</antlr.version>
         <fasterxml.spark3.version>2.13.3</fasterxml.spark3.version>
@@ -2466,6 +2469,7 @@
         <fasterxml.jackson.dataformat.yaml.version>${fasterxml.spark3.version}</fasterxml.jackson.dataformat.yaml.version>
         <log4j2.version>2.20.0</log4j2.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <sedona.spark.version>3.5</sedona.spark.version>
         <skipITs>false</skipITs>
       </properties>
       <modules>

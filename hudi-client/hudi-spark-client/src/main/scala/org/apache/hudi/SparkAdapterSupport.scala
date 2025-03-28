@@ -18,6 +18,7 @@
 
 package org.apache.hudi
 
+import org.apache.hudi.internal.schema.GeometryLType
 import org.apache.spark.sql.hudi.SparkAdapter
 
 /**
@@ -33,6 +34,7 @@ trait SparkAdapterSupport {
 object SparkAdapterSupport {
 
   lazy val sparkAdapter: SparkAdapter = {
+    GeometryLType.register()
     val adapterClass =  if (HoodieSparkUtils.isSpark3_5) {
       "org.apache.spark.sql.adapter.Spark3_5Adapter"
     } else if (HoodieSparkUtils.isSpark3_4) {
