@@ -17,10 +17,11 @@
 
 package org.apache.spark.sql.avro
 
-import org.apache.avro.{LogicalTypes, Schema, SchemaBuilder}
+import org.apache.avro.{GeometryLType, LogicalTypes, Schema, SchemaBuilder}
 import org.apache.avro.LogicalTypes.{Date, Decimal, TimestampMicros, TimestampMillis}
 import org.apache.avro.Schema.Type._
 import org.apache.spark.annotation.DeveloperApi
+import org.apache.spark.sql.sedona_sql.UDT.GeometryUDT
 import org.apache.spark.sql.types._
 import org.apache.spark.sql.types.Decimal.minBytesForPrecision
 
@@ -70,6 +71,7 @@ private[sql] object SchemaConverters {
         // For FIXED type, if the precision requires more bytes than fixed size, the logical
         // type will be null, which is handled by Avro library.
         case d: Decimal => SchemaType(DecimalType(d.getPrecision, d.getScale), nullable = false)
+        case g: GeometryLType => SchemaType(GeometryUDT, nullable = true)
         case _ => SchemaType(BinaryType, nullable = false)
       }
 
@@ -206,6 +208,8 @@ private[sql] object SchemaConverters {
           }
           fieldsAssembler.endRecord()
         }
+
+      case GeometryUDT => GeometryLType.getSchema()
 
       // This should never happen.
       case other => throw new IncompatibleSchemaException(s"Unexpected type $other.")

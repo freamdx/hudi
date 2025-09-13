@@ -18,6 +18,7 @@
 
 package org.apache.hudi.internal.schema.convert;
 
+import org.apache.avro.GeometryLType;
 import org.apache.hudi.avro.AvroSchemaUtils;
 import org.apache.hudi.common.util.Option;
 import org.apache.hudi.common.util.VisibleForTesting;
@@ -356,6 +357,8 @@ public class AvroInternalSchemaConverter {
         return Types.TimestampType.get();
       } else if (LogicalTypes.uuid().getName().equals(name)) {
         return Types.UUIDType.get();
+      } else if (logical instanceof GeometryLType) {
+        return Types.GeometryType.get();
       }
     }
 
@@ -577,6 +580,9 @@ public class AvroInternalSchemaConverter {
         return LogicalTypes.decimal(decimal.precision(), decimal.scale())
             .addToSchema(fixedSchema);
       }
+
+      case GEOMETRY:
+        return GeometryLType.getSchema();
 
       default:
         throw new UnsupportedOperationException(

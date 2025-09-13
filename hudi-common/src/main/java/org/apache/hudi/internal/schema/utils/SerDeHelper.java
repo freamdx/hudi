@@ -225,6 +225,8 @@ public class SerDeHelper {
           return Types.UUIDType.get();
         case BINARY:
           return Types.BinaryType.get();
+        case GEOMETRY:
+          return Types.GeometryType.get();
         default:
           throw new IllegalArgumentException("cannot parser types from jsonNode");
       }

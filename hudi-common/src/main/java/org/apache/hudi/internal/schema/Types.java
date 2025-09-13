@@ -793,4 +793,26 @@ public class Types {
       return Objects.hash(MapType.class, keyField, valueField);
     }
   }
+
+  /**
+   * Geometry primitive type.
+   */
+  public static class GeometryType extends PrimitiveType {
+    private static final GeometryType INSTANCE = new GeometryType();
+
+    public static GeometryType get() {
+      return INSTANCE;
+    }
+
+    @Override
+    public TypeID typeId() {
+      return TypeID.GEOMETRY;
+    }
+
+    @Override
+    public String toString() {
+      return "GEOMETRY";
+    }
+  }
+
 }

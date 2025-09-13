@@ -120,7 +120,7 @@
     <joda.version>2.9.9</joda.version>
     <hadoop.version>2.10.2</hadoop.version>
     <hive.groupid>org.apache.hive</hive.groupid>
-    <hive.version>2.3.4</hive.version>
+    <hive.version>2.3.9</hive.version>
     <hive.parquet.version>1.10.1</hive.parquet.version>
     <hive.avro.version>1.11.4</hive.avro.version>
     <presto.version>0.273</presto.version>
@@ -154,7 +154,7 @@
     <flink.avro.version>1.11.4</flink.avro.version>
     <flink.format.parquet.version>1.13.1</flink.format.parquet.version>
     <!-- check kafka version -->
-    <flink.connector.kafka.version>3.2.0-1.19</flink.connector.kafka.version> 
+    <flink.connector.kafka.version>3.2.0-1.19</flink.connector.kafka.version>
     <flink.runtime.artifactId>flink-runtime</flink.runtime.artifactId>
     <flink.table.runtime.artifactId>flink-table-runtime</flink.table.runtime.artifactId>
     <flink.table.planner.artifactId>flink-table-planner_2.12</flink.table.planner.artifactId>
@@ -232,6 +232,8 @@
     <springboot.version>2.7.3</springboot.version>
     <spring.shell.version>2.1.1</spring.shell.version>
     <snappy.version>1.1.10.7</snappy.version>
+    <sedona.version>1.7.2</sedona.version>
+    <sedona.spark.version>3.5</sedona.spark.version>
     <!-- The following properties are only used for Jacoco coverage report aggregation -->
     <copy.files>false</copy.files>
     <copy.files.target.dir>${maven.multiModuleProjectDirectory}</copy.files.target.dir>
@@ -2445,6 +2447,7 @@
         <pulsar.spark.version>${pulsar.spark.scala12.version}</pulsar.spark.version>
         <log4j2.version>2.20.0</log4j2.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <sedona.spark.version>3.5</sedona.spark.version>
         <genjavadoc-plugin.version>0.19</genjavadoc-plugin.version>
         <skipITs>true</skipITs>
       </properties>
@@ -2593,6 +2596,7 @@
         <fasterxml.jackson.dataformat.yaml.version>${fasterxml.spark3.version}</fasterxml.jackson.dataformat.yaml.version>
         <log4j2.version>2.20.0</log4j2.version>
         <slf4j.version>2.0.7</slf4j.version>
+        <sedona.spark.version>3.5</sedona.spark.version>
         <genjavadoc-plugin.version>0.19</genjavadoc-plugin.version>
         <skipITs>false</skipITs>
       </properties>

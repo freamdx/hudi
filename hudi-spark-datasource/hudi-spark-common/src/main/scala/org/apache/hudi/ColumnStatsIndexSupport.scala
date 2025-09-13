@@ -37,12 +37,14 @@ import org.apache.hudi.util.JFunction
 
 import org.apache.avro.Conversions.DecimalConversion
 import org.apache.avro.generic.GenericData
+import org.apache.sedona.sql.utils.GeometrySerializer
 import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 import org.apache.spark.sql.HoodieUnsafeUtils.{createDataFrameFromInternalRows, createDataFrameFromRDD, createDataFrameFromRows}
 import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.expressions.Expression
 import org.apache.spark.sql.catalyst.util.DateTimeUtils
 import org.apache.spark.sql.functions.col
+import org.apache.spark.sql.sedona_sql.UDT.GeometryUDT
 import org.apache.spark.sql.types._
 import org.apache.spark.storage.StorageLevel
 
@@ -506,6 +508,12 @@ object ColumnStatsIndexSupport {
       case BinaryType =>
         value match {
           case b: ByteBuffer => toBytes(b)
+          case other => other
+        }
+
+      case GeometryUDT =>
+        value match {
+          case b: ByteBuffer => GeometrySerializer.deserialize(toBytes(b))
           case other => other
         }
 
